@@ -1,14 +1,16 @@
 import express from "express";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 import authRoute from "./routes/auth.js";
 
 const app = express();
 
+dotenv.config();
 // Connect to DB
-mongoose.connect(
-  "mongodb+srv://irfandayan:dayan%4045%4045@cluster0.psjfd.mongodb.net/cluster0?retryWrites=true&w=majority",
-  () => console.log("connected to db!")
-);
+mongoose.connect(process.env.DB_CONNECT, () => console.log("connected to db!"));
+
+// Middlewares
+app.use(express.json());
 
 // Router middleware
 app.use("/api/user", authRoute);
