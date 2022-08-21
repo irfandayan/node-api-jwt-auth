@@ -7,6 +7,8 @@ import postRoute from "./routes/posts.js";
 const app = express();
 
 dotenv.config();
+const port = process.env.PORT || 5000;
+
 // Connect to DB
 mongoose.connect(process.env.DB_CONNECT, () => console.log("connected to db!"));
 
@@ -17,4 +19,4 @@ app.use(express.json());
 app.use("/api/user", authRoute);
 app.use("/api/posts", postRoute);
 
-app.listen(3000, () => console.log("Server Up and running "));
+app.listen(port, console.log(`Server running on port ${port}`));
