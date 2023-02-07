@@ -1,5 +1,6 @@
 import Joi from "@hapi/joi";
 
+// Back end validation
 // Register validation
 export const registerValidation = (data) => {
   const validationSchema = Joi.object({

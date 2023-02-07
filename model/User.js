@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 
+// Uer data schema with contraints
+// contraints are like validation
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
